@@ -1,0 +1,27 @@
+{
+  "name": "gasr",
+  "version": "0.0.0",
+  "description": "gasr - utilities for writing Google Apps Scripts locally via Clasp",
+  "main": "dist/index.js",
+  "bin": "dist/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --traceResolution > build.log"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpelton-stroud/gasr.git"
+  },
+  "author": "Stroud <jpstroud@gmail.com> (https://jpelton-stroud.github.io/)",
+  "license": "LGPL-2.1+",
+  "bugs": {
+    "url": "https://github.com/jpelton-stroud/gasr/issues"
+  },
+  "homepage": "https://github.com/jpelton-stroud/gasr#readme",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.0.0",
+    "meow": "^10.0.0"
+  },
+  "type": "module"
+}
