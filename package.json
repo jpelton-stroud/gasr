@@ -23,5 +23,9 @@
     "inquirer": "^8.0.0",
     "meow": "^10.0.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/inquirer": "^7.3.1",
+    "@types/node": "^15.0.3"
+  }
 }
