@@ -28,7 +28,6 @@ const CLI_FLAGS: AnyFlags = {
 };
 
 const cli = meow({
-  importMeta: import.meta,
   autoVersion: true,
   help: HELP_TEXT,
   flags: CLI_FLAGS,
