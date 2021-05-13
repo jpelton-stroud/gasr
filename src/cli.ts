@@ -1,9 +1,27 @@
 #!/usr/bin/env node
 import meow, { AnyFlags } from "meow";
+import path from "path";
 import { generate } from "./generate";
 import { init } from "./init";
 
-const HELP_TEXT = "Usage text";
+const HELP_TEXT = `
+
+    gasr <command> [options]
+
+Commands
+    init            Create scaffolding for a new Google Apps Script project
+    generate        Create scaffolding for a new UI component
+
+Options
+    -h, --help      Displays this help text
+    -y, --yes       Assume "yes" on all interactive prompts
+    -n, --no        Assume "no" on all interactive prompts
+    --dry-run       Don't commit any changes
+
+Usage
+    gasr init
+    gasr generate
+`;
 
 const CLI_FLAGS: AnyFlags = {
   help: {
@@ -38,13 +56,18 @@ interface ActionTable {
 }
 
 const actionTable: ActionTable = {
-  init: (f) => init(f),
-  generate: (f) => generate(f),
+  init: (p) => init(p),
+  generate: (p) => generate(p),
 };
 
-if (cli.input.length < 1) cli.showHelp(1);
+if (cli.input.length < 1 || cli.flags.help) cli.showHelp(1);
 else parseInput(cli.input[0], cli.input.slice(1));
 
 function parseInput(action: string, args: string[]) {
-  actionTable[action]?.(cli.flags);
+  actionTable[action]?.({
+    // Paths are relative to the transpiled output files.
+    gtsRoot: path.resolve(__dirname, "../.."),
+    target: process.cwd(),
+    ...cli.flags,
+  });
 }
