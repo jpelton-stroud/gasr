@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 import meow, { AnyFlags } from "meow";
 import path from "path";
-import { generate } from "./generate";
+
+import { Args } from "./index";
 import { init } from "./init";
+import { generate } from "./generate";
 
 const HELP_TEXT = `
 
@@ -52,7 +54,7 @@ const cli = meow({
 });
 
 interface ActionTable {
-  readonly [key: string]: (f: unknown) => Promise<boolean>;
+  readonly [key: string]: (f: Args) => Promise<boolean>;
 }
 
 const actionTable: ActionTable = {
@@ -66,8 +68,8 @@ else parseInput(cli.input[0], cli.input.slice(1));
 function parseInput(action: string, args: string[]) {
   actionTable[action]?.({
     // Paths are relative to the transpiled output files.
-    gtsRoot: path.resolve(__dirname, "../.."),
-    target: process.cwd(),
-    ...cli.flags,
+    gasrRoot: path.resolve(__dirname, "../.."),
+    targetRoot: process.cwd(),
+    flags: cli.flags,
   });
 }
