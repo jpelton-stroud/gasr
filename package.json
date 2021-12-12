@@ -6,7 +6,7 @@
   "bin": "dist/cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --traceResolution > build.log"
+    "build": "clasp push"
   },
   "repository": {
     "type": "git",
@@ -19,12 +19,15 @@
   },
   "homepage": "https://github.com/jpelton-stroud/gasr#readme",
   "dependencies": {
+    "@google/clasp": "^2.4.1",
+    "@types/google-apps-script": "^1.0.41",
     "fs-extra": "^10.0.0",
-    "inquirer": "^8.0.0",
-    "meow": "^9.0.0"
+    "inquirer": "^8.2.0",
+    "meow": "^9.0.0",
+    "typescript": "4.4"
   },
   "devDependencies": {
-    "@types/inquirer": "^7.3.1",
-    "@types/node": "^15.0.3"
+    "@types/inquirer": "^7.3.3",
+    "@types/node": "^15.14.9"
   }
 }
