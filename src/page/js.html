@@ -10,7 +10,21 @@
 <script>
   $(function () {
     initializeAlertBtns();
+    initializeVariableModal();
   });
+
+  function initializeVariableModal() {
+    $("#varModal").on("show.bs.modal", (event) => {
+      const button = event.relatedTarget;
+      const btnName = button.getAttribute("id");
+
+      $(".modal-title").text("Variable Modal Example");
+      $(".modal-body").html(`
+        This modal was triggered by the ${btnName} button
+      `);
+      $(".modal-footer").text("You can put other stuff down here");
+    });
+  }
 
   function initializeAlertBtns() {
     $("#alert").click(() => {
