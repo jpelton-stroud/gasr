@@ -9,6 +9,10 @@
 <!-- Custom JS -->
 <script>
   $(function () {
+    initializeAlertBtns();
+  });
+
+  function initializeAlertBtns() {
     $("#alert").click(() => {
       alert({ message: "clicked", type: "info" });
     });
@@ -19,7 +23,7 @@
     $("#alertFailure").click(() => {
       google.script.run.withFailureHandler(alert).scriptSuccess(false);
     });
-  });
+  }
 
   function alert({ message, type }) {
     if (!type) type = "danger";
@@ -27,13 +31,17 @@
     const alertPlaceholder = $("#liveAlertPlaceholder");
     const wrapper = $("<div>");
 
-    wrapper.html(
-      '<div class="alert alert-' +
-        type +
-        ' alert-dismissible" role="alert">' +
-        message +
-        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-    );
+    wrapper.html(`
+      <div class="alert alert-${type} alert-dismissible" role="alert">
+        ${message}
+        <button 
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+    `);
 
     alertPlaceholder.append(wrapper);
   }
