@@ -1,7 +1,7 @@
 const appTitle = "GASr Bootstrap5 Template";
 
 function doGet(e) {
-  let html = HtmlService.createTemplateFromFile("page/html");
+  let html = HtmlService.createTemplateFromFile("page/index");
   return html
     .evaluate()
     .setTitle(appTitle)

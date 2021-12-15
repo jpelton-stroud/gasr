@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- load css -->
     <?!= HtmlService.createHtmlOutputFromFile('page/css').getContent(); ?>
   </head>
   <body>
+    <!-- load primary page components -->
     <div class="col-lg-8 mx-auto p-3 py-md-5">
       <?!= HtmlService.createHtmlOutputFromFile('page/header').getContent(); ?>
       <?!= HtmlService.createHtmlOutputFromFile('page/main').getContent(); ?>
       <?!= HtmlService.createHtmlOutputFromFile('page/footer').getContent(); ?>
     </div>
 
+    <!-- load optional ui components -->
+    <?!= HtmlService.createHtmlOutputFromFile('ui/modal').getContent(); ?>
+
+    <!-- load javascript -->
     <?!= HtmlService.createHtmlOutputFromFile('page/js').getContent(); ?>
   </body>
 </html>
