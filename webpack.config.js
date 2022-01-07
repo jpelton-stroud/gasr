@@ -1,9 +1,10 @@
+const path = require("path");
 const GasPlugin = require("gas-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  context: __dirname,
-  entry: "./src/index.ts",
+  context: path.resolve(__dirname, "./src"),
+  entry: "./index.ts",
   module: {
     rules: [
       {
@@ -16,18 +17,15 @@ module.exports = {
     extensions: [".ts"],
   },
   output: {
-    path: __dirname,
-    filename: "build/Code.js",
+    path: path.resolve(__dirname, "./build"),
+    filename: "Code.js",
   },
   plugins: [
     new GasPlugin({
       autoGlobalExportsFiles: ["**/*.ts"],
     }),
     new CopyPlugin({
-      patterns: [
-        { from: "templates/**/*", to: "build/", context: "src" },
-        { from: "appsscript.json", to: "build/" },
-      ],
+      patterns: [{ from: "templates/**/*" }, { from: "appsscript.json" }],
     }),
   ],
 };
