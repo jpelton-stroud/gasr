@@ -1,12 +1,13 @@
 {
   "name": "gasr",
   "version": "0.0.0",
-  "description": "gasr - utilities for writing Google Apps Scripts locally via Clasp",
-  "main": "dist/index.js",
-  "bin": "dist/cli.js",
+  "description": "gasr - utilities for writing Google Apps Scripts locally via Clasp & Typescript",
   "scripts": {
+    "clean": "",
+    "lint": "npx prettier --write src",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --traceResolution > build.log"
+    "build": "npm run clean && npm run lint && webpack --mode production",
+    "deploy_dev": "npm run build && clasp push"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,16 @@
   },
   "homepage": "https://github.com/jpelton-stroud/gasr#readme",
   "dependencies": {
+    "@google/clasp": "^2.4.1",
+    "@types/google-apps-script": "^1.0.42",
+    "copy-webpack-plugin": "^10.2.0",
     "fs-extra": "^10.0.0",
+    "gas-webpack-plugin": "^2.1.0",
     "inquirer": "^8.0.0",
-    "meow": "^9.0.0"
+    "meow": "^9.0.0",
+    "ts-loader": "^9.2.6",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
   },
   "devDependencies": {
     "@types/inquirer": "^7.3.1",

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top" />
+    <!-- Use a templated HTML printing scriptlet to import common stylesheet -->
+    <?!= HtmlService.createHtmlOutputFromFile('templates/css').getContent(); ?>
+  </head>
+  <body class="app-window container">
+    <!-- Use templated HTML printing scriptlets to separate page components -->
+    <?!= HtmlService.createTemplateFromFile('templates/page.header').evaluate().getContent(); ?>
+    <?!= HtmlService.createTemplateFromFile('templates/page.content').evaluate().getContent(); ?>
+    <?!= HtmlService.createTemplateFromFile('templates/page.footer').evaluate().getContent(); ?>
+
+    <!-- Use a templated HTML printing scriptlet to import JavaScript. -->
+    <?!= HtmlService.createHtmlOutputFromFile('templates/js').getContent(); ?>
+  </body>
+</html>

@@ -1,4 +1,5 @@
-*scratch*
+build/
+.clasp.json
 
 # Logs
 logs
