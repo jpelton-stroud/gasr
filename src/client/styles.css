@@ -1,0 +1,22 @@
+/* fix the "scroll bar" issue in google webapps when vh = 100% */
+html,
+body,
+iframe#sandboxFrame {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-window {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-window > * {
+  margin: 0em 1em 1em 1em;
+}
+
+main {
+  flex-grow: 1;
+}
