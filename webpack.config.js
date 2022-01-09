@@ -24,7 +24,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "page.html",
+      template: "templates/page.html",
     }),
     // new GasPlugin({
     //   autoGlobalExportsFiles: ["**/*.ts"],

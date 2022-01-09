@@ -3,7 +3,7 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "deploy_dev",
+      "script": "webpack",
       "group": {
         "kind": "build",
         "isDefault": true
