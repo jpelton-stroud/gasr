@@ -13,6 +13,10 @@ module.exports = {
         test: /(\.ts)$/,
         loader: "ts-loader",
       },
+      {
+        test: /\.ejs$/i,
+        use: ["html-loader", "template-ejs-loader"],
+      },
     ],
   },
   resolve: {
@@ -23,14 +27,15 @@ module.exports = {
     filename: "Code.js",
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "templates/page.html",
+    new GasPlugin({
+      autoGlobalExportsFiles: ["**/*.ts"],
     }),
-    // new GasPlugin({
-    //   autoGlobalExportsFiles: ["**/*.ts"],
-    // }),
-    // new CopyPlugin({
-    //   patterns: [{ from: "templates/**/*" }, { from: "appsscript.json" }],
-    // }),
+    new HtmlWebpackPlugin({
+      template: "templates/index.ejs",
+      chunks: [],
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "appsscript.json" }],
+    }),
   ],
 };

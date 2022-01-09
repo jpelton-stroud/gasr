@@ -5,7 +5,7 @@ export const appTitle = "Google Apps Script template";
  * @returns HtmlOutput
  */
 export function doGet(): GoogleAppsScript.HTML.HtmlOutput {
-  return HtmlService.createTemplateFromFile("templates/page")
+  return HtmlService.createTemplateFromFile("index")
     .evaluate()
     .setTitle(appTitle);
 }

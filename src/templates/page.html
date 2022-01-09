@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <base target="_top" />
-    <!-- Use a templated HTML printing scriptlet to import common stylesheet -->
-    <?!= HtmlService.createHtmlOutputFromFile('templates/css').getContent(); ?>
-  </head>
-  <body class="app-window container">
-    <!-- Use templated HTML printing scriptlets to separate page components -->
-    <?!= HtmlService.createTemplateFromFile('templates/page.header').evaluate().getContent(); ?>
-    <?!= HtmlService.createTemplateFromFile('templates/page.content').evaluate().getContent(); ?>
-    <?!= HtmlService.createTemplateFromFile('templates/page.footer').evaluate().getContent(); ?>
+<header>
+  <h1><?= appTitle ?></h1>
+</header>
 
-    <!-- Use a templated HTML printing scriptlet to import JavaScript. -->
-    <?!= HtmlService.createHtmlOutputFromFile('templates/js').getContent(); ?>
-  </body>
-</html>
+<main class="container">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</main>
+
+<footer>
+  This Google Apps Script webapp example created by
+  <a href="https://oneprofile.verizon.com/profile/8903355902">Stroud</a>,
+  Menands FSC
+</footer>
