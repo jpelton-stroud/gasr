@@ -26,6 +26,7 @@
     "@types/google-apps-script": "^1.0.42",
     "@types/jquery": "^3.5.11",
     "copy-webpack-plugin": "^10.2.0",
+    "ejs-loader": "^0.5.0",
     "fs-extra": "^10.0.0",
     "gas-webpack-plugin": "^2.1.0",
     "inquirer": "^8.0.0",
@@ -37,6 +38,9 @@
   },
   "devDependencies": {
     "@types/inquirer": "^7.3.1",
-    "@types/node": "^15.0.3"
+    "@types/node": "^15.0.3",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "template-ejs-loader": "^0.5.0"
   }
 }

@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const GasPlugin = require("gas-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
@@ -22,11 +23,14 @@ module.exports = {
     filename: "Code.js",
   },
   plugins: [
-    new GasPlugin({
-      autoGlobalExportsFiles: ["**/*.ts"],
+    new HtmlWebpackPlugin({
+      template: "page.html",
     }),
-    new CopyPlugin({
-      patterns: [{ from: "templates/**/*" }, { from: "appsscript.json" }],
-    }),
+    // new GasPlugin({
+    //   autoGlobalExportsFiles: ["**/*.ts"],
+    // }),
+    // new CopyPlugin({
+    //   patterns: [{ from: "templates/**/*" }, { from: "appsscript.json" }],
+    // }),
   ],
 };
