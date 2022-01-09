@@ -3,6 +3,7 @@ const GasPlugin = require("gas-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+  mode: "production",
   context: path.resolve(__dirname, "./src"),
   entry: "./index.ts",
   module: {

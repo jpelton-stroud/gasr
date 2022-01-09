@@ -5,8 +5,9 @@
   "scripts": {
     "clean": "npx fse emptyDir build",
     "lint": "npx prettier --write src",
+    "webpack": "webpack --stats-children",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && npm run lint && webpack --mode production",
+    "build": "npm run clean && npm run lint && npm run webpack",
     "deploy_dev": "npm run build && clasp push"
   },
   "repository": {
