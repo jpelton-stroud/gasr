@@ -8,7 +8,8 @@
     "webpack": "webpack --stats-children",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && npm run lint && npm run webpack",
-    "deploy_dev": "npm run build && clasp push"
+    "deploy_dev": "npm run build && clasp push",
+    "open_app": "clasp open --webapp --deploymentId=AKfycbx5hLisDie5iziK-dHmrIlBp7S_z0UnK4nAIdLAEc8q"
   },
   "repository": {
     "type": "git",
